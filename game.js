@@ -243,9 +243,10 @@ function spawnBalloon() {
     // Create balloon sprite
     const balloon = balloons.create(x, -20, 'collectible');
     
-    // Adjust collision body to absolute minimum - zero margin
-    balloon.body.setSize(12, 12); // Extremely small core only
-    balloon.body.setOffset(9, 9); // Precise centering on the balloon
+    // Adjust collision body to cover the whole balloon oval
+    // Reference: https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Arcade.Body.html#setSize
+    balloon.body.setSize(24, 34); // Covers the full balloon oval
+    balloon.body.setOffset(6, 5); // Positioned to match the balloon drawing
     
     // Set velocity with difficulty multiplier
     const baseSpeed = 120;
